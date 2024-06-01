@@ -56,6 +56,7 @@ body {
   
     .contact_info_container {
       align-items: center;
+      width: 200px;
     }
   
     .contact-info__block:not(:last-child) {
@@ -100,6 +101,18 @@ body {
     display: flex;
     justify-content: start;
 }
+
+.contact-info__social {
+    color: var(--secondary-text-color);
+    display: flex;
+}
+
+.contact-info__social > div{
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    padding: 4px;
+}
   
 .contact-info__item:not(:last-child) {
     margin-bottom: 20px;
@@ -123,8 +136,8 @@ body {
   
 .contact-info__avatar {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border: 3px solid;
     border-color: var(--text-decoration-color);
