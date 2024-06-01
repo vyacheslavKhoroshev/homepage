@@ -169,7 +169,7 @@ body {
     text-align: justify;
 }
   
-.skills__header {
+/*.skills__header {
     color: var(--secondary-text-color);
     text-align: center;
     margin-bottom: 15px;
@@ -178,10 +178,10 @@ body {
 .skills__text {
     color: var(--secondary-text-color);
     text-align: justify;
-}
+}*/
 
 
-.experiences {
+/*.experiences {
     flex: 1 1 60%;
     margin-right: 50px;
 }
@@ -228,11 +228,9 @@ body {
 .experiences__company-project-responsibilities {
     color: var(--secondary-text-color);
     padding-left: 20px;
-}
+}*/
   
-.additional-info {
-    flex: 1 1 40%;
-}
+/*
   
 .additional-info__education {
     margin-bottom: 20px;
@@ -273,4 +271,38 @@ body {
   
 .additional-info__languages-item {
     color: var(--secondary-text-color);
+}*/
+
+.additional-info {
+    flex: 1 1 40%;
+}
+
+.additional-info_header {
+    display: flex;
+}
+
+.additional-info_category {
+    flex: 1 1 33%;
+    border: 1px solid #000;
+    text-align: center;
+    padding: 1rem;
+}
+
+.active {
+    background: var(--text-decoration-color);
+}
+
+.additional-info_main {
+    border: 1px solid #000;
+}
+
+.additional-info_item {
+    margin: 1rem;
+    padding: 0.5rem;
+    color: --secondary-text-color;
+}
+
+.additional-info_skills {
+    display: flex;
+    border: 1px solid #000;
 }
