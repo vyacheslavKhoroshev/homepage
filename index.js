@@ -47,7 +47,7 @@ const informations = {
                 status: 2.5
             },
             {
-                info: 'Excel',
+                info: 'Microsoft Office',
                 status: 4.1
             },
             {
@@ -118,7 +118,7 @@ const informations = {
             },
             {
                 info: 'Time management',
-                status: 2.4
+                status: 2.7
             },
             {
                 info: 'Teamwork',
@@ -131,7 +131,6 @@ const informations = {
         ]
     }
 }
-
 
 const additionalInfoHeader = document.querySelector('.additional-info_header')
 const categories = Object.keys(informations)
@@ -161,7 +160,7 @@ function createList(category) {
         return
     }
     removeElementsByClass('additional-info_row')
-
+    
     let sortedList
 
     if (isCategory(category)) {
@@ -196,6 +195,10 @@ categories.forEach(category => {
 })
 
 createList('expirience')
+
+
+
+
 
 document.querySelector('body').addEventListener('click', (e) => {
     const event = e.target
@@ -232,5 +235,25 @@ document.querySelector('body').addEventListener('click', (e) => {
         createList(event.id)
     }
 })
+
+
+const slideBlocks = [
+    document.querySelectorAll('.container')[0],
+    document.querySelectorAll('.container')[1],
+    document.querySelector('.additional-info_header'),
+    document.querySelector('.additional-info_list')
+]
+
+slideBlocks.forEach((cont, i) => {
+    cont.style.left = '-150%'
+    cont.style.opacity = '0'
+    cont.style.transition = 'all 0.45s 0s linear'
+
+    setTimeout(() => {
+        cont.style.left = '0%'
+        cont.style.opacity = '1'
+    }, 500 * (i+1))
+})
+
 
 
