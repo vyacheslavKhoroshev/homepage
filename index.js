@@ -156,11 +156,11 @@ function removeElementsByClass(classs) {
 }
 
 function createList(category) {
-    if (category == "skills"){
+    if (category == 'skills'){
         return
     }
     removeElementsByClass('additional-info_row')
-    
+
     let sortedList
 
     if (isCategory(category)) {
@@ -174,13 +174,13 @@ function createList(category) {
     sortedList.forEach(item => {
         document.querySelector('.additional-info_list').insertAdjacentHTML(
             'beforeend', 
-            `<ul class="additional-info_row">
-                <div class="additional-info_item">${item.info}</div>
+            `<ul class='additional-info_row'>
+                <div class='additional-info_item'>${item.info}</div>
                 ${ typeof item.status == 'number'  
-                    ? `<div class="additional-info_item_raiting">
-                            <div class="additional-info_item_raiting_active" style="width: ${item.status * 20}%;"></div>
+                    ? `<div class='additional-info_item_raiting'>
+                            <div class='additional-info_item_raiting_active' style='width: ${item.status * 20}%;'></div>
                         </div>`
-                    : `<div class="additional-info_item">${item.status}</div>`
+                    : `<div class='additional-info_item'>${item.status}</div>`
                 }
             </ul>` 
         )
@@ -191,16 +191,13 @@ categories.forEach(category => {
     let active = category == 'expirience' ? ' active' : ''
     let categoryName = firstLetterToUpperCase(category)
     
-    additionalInfoHeader.insertAdjacentHTML('beforeend', `<div class="additional-info_category${active}" id="${category}">${categoryName}</div>` )
+    additionalInfoHeader.insertAdjacentHTML('beforeend', `<div class='additional-info_category${active}' id='${category}'>${categoryName}</div>` )
 })
 
 createList('expirience')
 
-
-
-
-
-document.querySelector('body').addEventListener('click', (e) => {
+const body = document.querySelector('body')
+body.addEventListener('click', (e) => {
     const event = e.target
 
     if(event.className.includes('category')) {
@@ -213,14 +210,14 @@ document.querySelector('body').addEventListener('click', (e) => {
         event.classList.add('active')
 
         if (!isCategory(event.id)) {
-            document.getElementById("skills").classList.add('active')
+            document.getElementById('skills').classList.add('active')
         }
 
         if (event.id == 'skills' && !document.querySelector('.additional-info_skills')) {
             event.insertAdjacentHTML('beforeend', 
-                `<div class="additional-info_skills">
-                    <div class="additional-info_subcategory active" id="hard">Hard</div>
-                    <div class="additional-info_subcategory" id="soft">Soft</div>
+                `<div class='additional-info_skills'>
+                    <div class='additional-info_subcategory active' id='hard'>Hard</div>
+                    <div class='additional-info_subcategory' id='soft'>Soft</div>
                 </div>` 
             )
 
@@ -234,8 +231,17 @@ document.querySelector('body').addEventListener('click', (e) => {
 
         createList(event.id)
     }
-})
 
+    if (event.className.includes('contact-info__avatar')) {
+        if (event.src.includes('avatar1')) {
+            event.src = "assets/avatar2.jpg"
+            event.style.transform = 'rotate(1turn)'
+        } else {
+            event.src = "assets/avatar1.jpg"
+            event.style.transform = 'rotate(0turn)'
+        }
+    }
+})
 
 const slideBlocks = [
     document.querySelectorAll('.container')[0],
@@ -254,6 +260,8 @@ slideBlocks.forEach((cont, i) => {
         cont.style.opacity = '1'
     }, 500 * (i+1))
 })
+
+
 
 
 

@@ -7,12 +7,12 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
-  
     --primary-text-color: #2a2a31;
     --secondary-text-color: #5c5c62;
     --hover-color: #7e7f809c;
     --icon-color: #6a737d;
     --border-color: #4594dd47;
+    --main-background: #e6effb;
     --main-color: linear-gradient(
         135deg,
         rgba(52,146,232,1) 0%, 
@@ -61,7 +61,7 @@ main {
     border: 1px solid #f5f5f5;
     box-shadow: 1px 1px 7px 7px #f5f5f5;
     max-width: 900px;
-    background: #e6effb;
+    background: var(--main-background);
     border-radius: 75px 0 75px 0;
 }
   
@@ -70,6 +70,7 @@ main {
     border-radius: var(--main-border-radius);
     padding: 30px;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .border-none {
@@ -100,12 +101,15 @@ main {
     text-align: center;
     font-size: 3rem;
     cursor: pointer;
+    border-radius: var(--main-border-radius);
+    border: 0.2rem solid var(--hover-color);
+    color: var(--primary-text-color);
 }
 
 .contact-info__sub-header {
     color: var(--primary-text-color);
     margin-bottom: 15px;
-    text-decoration-color: var(--main-color);
+    text-decoration-color: var(--primary-text-color);
     text-align: center;
     font-size: 2rem;
     color: var(--secondary-text-color);
@@ -164,6 +168,7 @@ main {
     height: 200px;
     object-fit: cover;
     border: 3px solid;
+    outline: 0.2rem solid var(--hover-color);
     border-color: var(--border-color);
     margin-left: 50%;
     transition: all 0.3s 0s linear;
@@ -273,7 +278,6 @@ main {
 .additional-info_list {
     position: relative;
     margin-top: 2rem;
-    
 }
 
 .additional-info_row {
@@ -281,13 +285,13 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 0 1rem 0 1rem;
-    animation: slide-list 1s ease-in;
+    animation: slide-list 0.5s ease-in;
 }
 
 @keyframes slide-list {
     0% { 
         opacity: 0; 
-        left: -200%;
+        left: -100%;
     }
     100% { 
         opacity: 1; 
@@ -304,7 +308,7 @@ main {
 
 .additional-info_item {
     padding: 0.5rem;
-    color: --secondary-text-color;
+    color: var(--secondary-text-color);
     line-height: 2rem;
 }
 
@@ -341,3 +345,11 @@ main {
             background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+.rotate {
+    transform: rotate(1turn);
+}
+
+
+
