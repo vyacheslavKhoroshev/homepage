@@ -1,24 +1,140 @@
 const informations = {
     education: [
-        'General education school of I-III degrees No. 55 (1996-2004)', 'Mykolaiv Gymnasium No. 4 named after B. I. Molchanov. (2004-2006)', 
-        'Mykolaiv branch of the Kyiv National University of Culture and Arts (2006-2010)', 'Self-learning programming (2022-present)', 
-        'English courses at online school (2024-present)'
+        {
+            info: 'Mykolaiv branch of the Kyiv National University of Culture and Arts',
+            status: '2006-2010'
+        },
+        {
+            info: 'General education school of I-III degrees No. 55',
+            status: '1996-2004'
+        },
+        {
+            info: 'English courses at online school',
+            status: '2024-present'
+        },
+        {
+            info: 'Mykolaiv Gymnasium No. 4 named after B. I. Molchanov',
+            status: '2004-2006'
+        },
+        {
+            info: 'Self-learning programming',
+            status: '2022-present'
+        }
     ],
 
     expirience: [
-        'Sales consultant in a construction supermarket 33m2 (2010-2012)', 'Department manager in a construction supermarket of 33 m2 (2012 - 2018)',
-        'Deputy administrator of a construction supermarket of 33 m2 (2018-2020)', 'Data Specialist in a product IT company (2021-present)'
+        {
+            info: 'Sales consultant in a construction supermarket 33m2',
+            status: '2010-2012'
+        },
+        {
+            info: 'Data Specialist in a product IT company',
+            status: '2021-present'
+        },
+        {
+            info: 'Deputy administrator of a construction supermarket of 33 m2',
+            status: '2018-2020'
+        },
+        {
+            info: 'Department manager in a construction supermarket of 33 m2',
+            status: '2012-2018'
+        }
     ], 
     skills: {
-        hard: ['HTML/CSS', 'Javascript', 'Typescript', 'React', 'Redux', 'Node.js', 'Express.js', 'Mongo DB', 'Git', 'Excel', 'English'],
-        soft: ['Communication', 'Teamwork', 'Time management', 'Leadership', 'Adaptability-flexibility', 'Creativity', 'Patience', 'Attention to detail', 'Dependability', 'Initiative']
+        hard: [
+            {
+                info: 'English',
+                status: 2.5
+            },
+            {
+                info: 'Excel',
+                status: 4.1
+            },
+            {
+                info: 'Git',
+                status: 2.2
+            },
+            {
+                info: 'Mongo DB',
+                status: 2.6
+            },
+            {
+                info: 'Express',
+                status: 1.5
+            },
+            {
+                info: 'Node.js',
+                status: 2.1
+            },
+            {
+                info: 'Redux',
+                status: 2.8
+            },
+            {
+                info: 'React',
+                status: 3.3
+            },
+            {
+                info: 'Typescript',
+                status: 3.9
+            },
+            {
+                info: 'Javascript',
+                status: 4.8
+            },
+            {
+                info: 'HTML/CSS',
+                status: 4.2
+            }
+        ],
+        soft: [
+            {
+                info: 'Dependability',
+                status: 4.3
+            },
+            {
+                info: 'Initiative',
+                status: 4.8
+            },
+            {
+                info: 'Attention to detail',
+                status: 4.2
+            },
+            {
+                info: 'Patience',
+                status: 4.7
+            },
+            {
+                info: 'Creativity',
+                status: 3.2
+            },
+            {
+                info: 'Adaptability-flexibility',
+                status: 3.8
+            },
+            {
+                info: 'Leadership',
+                status: 3.5
+            },
+            {
+                info: 'Time management',
+                status: 2.4
+            },
+            {
+                info: 'Teamwork',
+                status: 3.9
+            },
+            {
+                info: 'Communication',
+                status: 2.7
+            }
+        ]
     }
 }
 
 
 const additionalInfoHeader = document.querySelector('.additional-info_header')
 const categories = Object.keys(informations)
-const isCategory = 
 
 function isCategory(event) {
     return categories.includes(event)
@@ -44,12 +160,31 @@ function createList(category) {
     if (category == "skills"){
         return
     }
-    removeElementsByClass('additional-info_item')
+    removeElementsByClass('additional-info_row')
 
-    let list = isCategory(category) ? informations[category] : informations.skills[category]
+    let sortedList
 
-    list.forEach(item => {
-        document.querySelector('.additional-info_main').insertAdjacentHTML('beforeend', `<ol class="additional-info_item">${item}</ol>` )
+    if (isCategory(category)) {
+        sortedList = informations[category].sort((a, b) => a.status > b.status ? 1 : -1)
+    } else {
+        sortedList = informations.skills[category].sort((a, b) => a.status > b.status ? -1 : 1)
+    }
+
+    console.log({sortedList})
+
+    sortedList.forEach(item => {
+        document.querySelector('.additional-info_list').insertAdjacentHTML(
+            'beforeend', 
+            `<ul class="additional-info_row">
+                <div class="additional-info_item">${item.info}</div>
+                ${ typeof item.status == 'number'  
+                    ? `<div class="additional-info_item_raiting">
+                            <div class="additional-info_item_raiting_active" style="width: ${item.status * 20}%;"></div>
+                        </div>`
+                    : `<div class="additional-info_item">${item.status}</div>`
+                }
+            </ul>` 
+        )
     })
 }
 
@@ -65,8 +200,8 @@ createList('expirience')
 document.querySelector('body').addEventListener('click', (e) => {
     const event = e.target
 
-    if(event.className == 'additional-info_category') {
-        let categoriesEl = document.querySelectorAll('.additional-info_category')
+    if(event.className.includes('category')) {
+        let categoriesEl = document.querySelectorAll('[class*="category"')
 
         categoriesEl.forEach(cat => {
             cat.classList.remove('active')
@@ -79,10 +214,10 @@ document.querySelector('body').addEventListener('click', (e) => {
         }
 
         if (event.id == 'skills' && !document.querySelector('.additional-info_skills')) {
-            document.querySelector('.additional-info_main').insertAdjacentHTML('beforeend', 
+            event.insertAdjacentHTML('beforeend', 
                 `<div class="additional-info_skills">
-                    <div class="additional-info_category active" id="hard">Hard</div>
-                    <div class="additional-info_category" id="soft">Soft</div>
+                    <div class="additional-info_subcategory active" id="hard">Hard</div>
+                    <div class="additional-info_subcategory" id="soft">Soft</div>
                 </div>` 
             )
 

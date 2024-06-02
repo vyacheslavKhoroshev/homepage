@@ -63,8 +63,8 @@ body {
       margin-bottom: 20px;
     }
   
-  .experiences {
-      margin-right: 0;
+    .experiences {
+        margin-right: 0;
     }
 }
 
@@ -169,140 +169,90 @@ body {
     text-align: justify;
 }
   
-/*.skills__header {
-    color: var(--secondary-text-color);
-    text-align: center;
-    margin-bottom: 15px;
-}
-  
-.skills__text {
-    color: var(--secondary-text-color);
-    text-align: justify;
-}*/
-
-
-/*.experiences {
-    flex: 1 1 60%;
-    margin-right: 50px;
-}
-  
-.experiences__header {
-    color: var(--secondary-text-color);
-    text-align: left;
-    margin-bottom: 20px;
-}
-  
-.experiences__company-header-durability {
-    color: var(--durability-text-color);
-    text-align: left;
-    margin-bottom: 10px;
-    font-size: 15px;
-}
-  
-.experiences__company-header-name {
-    color: var(--primary-text-color);
-    text-decoration-color: var(--text-decoration-color);
-    text-decoration-line: underline;
-    text-align: left;
-    margin-bottom: 20px;
-}
-  
-.experiences__company-project {
-    margin-left: 15px;
-    margin-bottom: 25px;
-}
-  
-.experiences__company-project-role {
-    color: var(--durability-text-color);
-    text-align: left;
-    margin-bottom: 10px;
-    font-size: 15px;
-}
-  
-.experiences__company-project-name {
-    color: var(--primary-text-color);
-    text-align: left;
-    margin-bottom: 10px;
-}
-  
-.experiences__company-project-responsibilities {
-    color: var(--secondary-text-color);
-    padding-left: 20px;
-}*/
-  
-/*
-  
-.additional-info__education {
-    margin-bottom: 20px;
-}
-  
-.additional-info__education-header {
-    color: var(--secondary-text-color);
-    text-align: left;
-    margin-bottom: 20px;
-}
-  
-.additional-info__education-university-durability {
-    color: var(--durability-text-color);
-    text-align: left;
-    margin-bottom: 10px;
-    font-size: 15px;
-}
-  
-.additional-info__education-university-speciality {
-    color: var(--primary-text-color);
-    text-align: left;
-    margin-bottom: 10px;
-}
-  
-.additional-info__education-university-name {
-    color: var(--secondary-text-color);
-}
-  
-.additional-info__languages {
-    margin-bottom: 20px;
-}
-  
-.additional-info__languages-header {
-    color: var(--secondary-text-color);
-    text-align: left;
-    margin-bottom: 20px;
-}
-  
-.additional-info__languages-item {
-    color: var(--secondary-text-color);
-}*/
-
 .additional-info {
     flex: 1 1 40%;
+    color: var(--secondary-text-color);
 }
 
 .additional-info_header {
     display: flex;
+    font-weight: bold;
 }
 
 .additional-info_category {
+    position: relative;
     flex: 1 1 33%;
-    border: 1px solid #000;
     text-align: center;
     padding: 1rem;
+    border-bottom: 3px solid var(--border-color);
+    transition: all 0.3s 0s linear;
+}
+
+.additional-info_skills {
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+}
+
+.additional-info_subcategory {
+    flex: 1 1 50%;
+    text-align: center;
+    padding: 0.25rem;
 }
 
 .active {
     background: var(--text-decoration-color);
+    transition: all 0.3s 0s linear;
 }
 
-.additional-info_main {
+.additional-info_list {
+    margin-top: 1.5rem;
     border: 1px solid #000;
+    min-height: 40rem;
+}
+
+.additional-info_row {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+    padding: 0 1rem 0 1rem;
 }
 
 .additional-info_item {
-    margin: 1rem;
     padding: 0.5rem;
     color: --secondary-text-color;
+    line-height: 2rem;
 }
 
-.additional-info_skills {
-    display: flex;
-    border: 1px solid #000;
+.additional-info_item_raiting {
+    position: relative;
+    font-size: 2rem;
+}
+
+.additional-info_item_raiting::before {
+    content: '★★★★★';
+    display: block;
+    color: var(--secondary-text-color);
+    opacity: 0.6;
+}
+
+.additional-info_item_raiting_active {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.additional-info_item_raiting_active::before {
+    content: '★★★★★';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: var(--text-decoration-color);
 }
