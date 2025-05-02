@@ -1,0 +1,16 @@
+.skills__header {
+  color: var(--secondary-text-color);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.skill-name {
+  color: var(--secondary-text-color);
+  text-align: justify;
+}
+
+.skill-level {
+  color: var(--secondary-text-color);
+  text-align: justify;
+  border: 1px solid #000;
+}
