@@ -1,0 +1,29 @@
+{
+  "educations": [
+    {
+      "university": "Mykolaiv branch of the Kyiv National University of Culture and Arts",
+      "speciality": "Computer Science",
+      "period": "2006-2010"
+    },
+    {
+      "university": "General education school of I-III degrees No. 55",
+      "speciality": "Computer Science",
+      "period": "1996-2004"
+    },
+    {
+      "university": "English courses at online school",
+      "speciality": "Computer Science",
+      "period": "2024-present"
+    },
+    {
+      "university": "Mykolaiv Gymnasium No. 4 named after B. I. Molchanov",
+      "speciality": "Computer Science",
+      "period": "2004-2006"
+    },
+    {
+      "university": "Self-learning programming",
+      "speciality": "Computer Science",
+      "period": "2022-present"
+    }
+  ]
+}
