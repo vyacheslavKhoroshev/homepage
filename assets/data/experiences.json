@@ -1,0 +1,54 @@
+{
+  "experiences": [
+    {
+      "company": "Binary Studio",
+      "period": "2005-Present",
+      "role": "Senior Developer",
+      "responsibilities": [
+        "Developed core features",
+        "Implemented security protocols",
+        "Led team of 5 developers"
+      ]
+    },
+    {
+      "company": "33m2",
+      "period": "2010-2012",
+      "role": "Sales consultant in a construction supermarket 33m2",
+      "responsibilities": [
+        "Developed core features",
+        "Implemented security protocols",
+        "Led team of 5 developers"
+      ]
+    },
+    {
+      "company": "TrackEnsure",
+      "period": "2021-present",
+      "role": "Data Specialist in a product IT company",
+      "responsibilities": [
+        "Developed core features",
+        "Implemented security protocols",
+        "Led team of 5 developers"
+      ]
+    },
+    {
+      "company": "33 m2",
+      "period": "2018-2020t",
+      "role": "Deputy administrator of a construction supermarket of 33 m2",
+      "responsibilities": [
+        "Developed core features",
+        "Implemented security protocols",
+        "Led team of 5 developers"
+      ]
+    },
+    {
+      "company": "33 m2",
+      "period": "2005-Present",
+      "role": "Department manager in a construction supermarket of 33 m2",
+      "responsibilities": [
+        "Developed core features",
+        "Implemented security protocols",
+        "Led team of 5 developers"
+      ]
+    }
+  ]
+}

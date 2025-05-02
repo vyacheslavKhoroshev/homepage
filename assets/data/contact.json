@@ -1,0 +1,10 @@
+{
+  "contact": {
+    "name": "John Doe",
+    "position": "Senior Developer",
+    "email": "john.doe@example.com",
+    "phone": "+1234567890",
+    "location": "New York, USA",
+    "avatar": "path/to/avatar.jpg"
+  }
+}
