@@ -1,0 +1,32 @@
+{
+  "contacts": [
+    {
+      "link": "https://github.com/users/vyacheslavKhoroshev",
+      "icon": "fab fa-github github"
+    },
+    {
+      "link": "https://x.com/NorrisChackky",
+      "icon": "fa-brands fa-x-twitter twitter"
+    },
+    {
+      "link": "https://www.facebook.com/horoshev.viacheslav/",
+      "icon": "fab fa-facebook facebook"
+    },
+    {
+      "link": "https://www.instagram.com/khoroshev_viacheslav/",
+      "icon": "fab fa-instagram instagram"
+    },
+    {
+      "link": "https://t.me/norfolk0708",
+      "icon": "fab fa-telegram telegram"
+    },
+    {
+      "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "icon": "fa-brands fa-youtube youtube"
+    },
+    {
+      "link": "https://www.google.com/maps/place/46.951545,%2031.938479",
+      "icon": "fa-solid fa-location-dot location"
+    }
+  ]
+}

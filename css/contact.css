@@ -1,3 +1,14 @@
+.contact-info__item {
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  display: flex;
+  justify-content: start;
+  transition: transform 0.3s, color 0.3s;
+}
+.contact-info__item:hover {
+  transform: scale(1.5);
+}
+
 .contact-info__header,
 .contact-info__sub-header {
   text-align: center;
@@ -25,12 +36,6 @@
   justify-content: center;
 }
 
-.contact-info__item {
-  color: var(--secondary-text-color);
-  text-decoration: none;
-  display: flex;
-  justify-content: start;
-}
 
 .contact-info__item:not(:last-child) {
   margin-bottom: 20px;
