@@ -1,0 +1,123 @@
+.tabs {
+  width: 100%;
+}
+
+.tabs__header {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.tabs__button {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--secondary-text-color);
+  transition: all 0.4s ease;
+}
+
+.tabs__button::after {
+  position: absolute;
+  content: "";
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-decoration-color);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.tabs__content {
+  position: relative;
+  min-height: 200px;
+}
+
+.tabs__button.active {
+  color: var(--primary-text-color);
+}
+
+.tabs__button.active::after {
+  transform: scaleX(1);
+}
+
+.tabs__panel {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tabs__panel.active {
+  display: block;
+  opacity: 1;
+}
+
+.panel__header {
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.panel__header-title {
+  color: var(--primary-text-color);
+  text-align: left;
+  font-size: 15px;
+}
+
+.panel__wrapper:hover {
+  background-color: var(--text-decoration-color);
+}
+
+.panel__wrapper {
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.panel__durability {
+  position: absolute;
+  top: 1.6rem;
+  left: 0;
+  color: var(--durability-text-color);
+  font-size: 0.8rem;
+}
+
+.panel__name {
+  position: relative;
+  margin-top: -1rem;
+  color: var(--primary-text-color);
+  text-decoration-color: var(--text-decoration-color);
+  text-decoration-line: underline;
+  text-align: left;
+  min-width: 10rem;
+}
+
+.panel__description {
+  color: var(--primary-text-color);
+  text-align: left;
+  font-size: 15px;
+}
+
+.skill__level {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skill__level-bar {
+  height: 8px;
+  background-color: var(--text-decoration-color);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.skill__level-text {
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+  min-width: 40px;
+}
