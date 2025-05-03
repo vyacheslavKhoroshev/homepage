@@ -134,11 +134,29 @@ const createPanel = (data, titles, skill = false) => {
   return container;
 };
 
+const createLinkIcon = (contacts) => {
+  const container = createElement({ tagName: "div", className: "social-icons" });
+
+  contacts.forEach((contact) => {
+    const link = createElement({ tagName: "a" , className: 'contact-info__item'});
+    link.href = contact.link;
+    link.target = "_blank";
+
+    const icon = createElement({ tagName: "i", className: contact.icon });
+    link.appendChild(icon);
+
+    container.appendChild(link);
+  });
+
+  return container;
+};
+
 const loadData = async () => {
-  const [experiencesData, educationData, skillsData] = await Promise.all([
+  const [experiencesData, educationData, skillsData, contactsData] = await Promise.all([
     fetchData("assets/data/experiences.json"),
     fetchData("assets/data/educations.json"),
     fetchData("assets/data/skills.json"),
+    fetchData("assets/data/contacts.json"),
   ]);
 
   if (experiencesData) {
@@ -168,6 +186,12 @@ const loadData = async () => {
       .appendChild(
         createPanel(skillsData.skills.technical, ["Skill", "Level"], true)
       );
+  }
+
+  if (contactsData) {
+    document
+      .querySelector(".contact_info_container")
+      .appendChild(createLinkIcon(contactsData.contacts));
   }
 };
 
