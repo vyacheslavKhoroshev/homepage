@@ -13,7 +13,6 @@
           <div class="resume__block">
             <h1 class="contact-info__header">Khoroshev Vyacheslav</h1>
             <h3 class="contact-info__sub-header">Full-Stack Developer</h3>
-
             <div class="contact_info_container fh">
               <div class="contact-info__block">
                 <a href="" rel="author" class="contact-info__item">
@@ -106,25 +105,77 @@
 
         <div class="container">
           <div class="resume__block">
-            <div class="main-info fh">
-              <div class="experiences">
-                <h3 class="experiences__header">Experience</h3>
-                <div class="experiences__container"></div>
+            <div class="tabs">
+              <div class="tabs__header">
+                <button
+                  class="tabs__button active"
+                  data-tab="experience"
+                  data-tab-type="primary"
+                >
+                  Experience
+                </button>
+                <button
+                  class="tabs__button"
+                  data-tab="education"
+                  data-tab-type="primary"
+                >
+                  Education
+                </button>
+                <button
+                  class="tabs__button"
+                  data-tab="skills"
+                  data-tab-type="primary"
+                >
+                  Skills
+                </button>
               </div>
-              <div class="education">
-                <h3 class="education-header">Education</h3>
-                <div class="educations__container"></div>
-              </div>
-              <div class="skills">
-                <h3 class="skills-header">Skills</h3>
-                <div class="skills__container"></div>
-              </div>
-              <div class="additional-info fv">
-                <div class="additional-info fv">
-                  <div class="additional-info__languages">
-                    <h3 class="additional-info__languages-header">Languages</h3>
-                    <p class="additional-info__languages-item">English</p>
-                    <p class="additional-info__languages-item">Ukrainian</p>
+              <div class="tabs__content">
+                <div
+                  class="tabs__panel active"
+                  id="experience"
+                  data-tab-type="primary"
+                >
+                  <div class="experiences__panel"></div>
+                </div>
+                <div class="tabs__panel" id="education" data-tab-type="primary">
+                  <div class="educations__panel"></div>
+                </div>
+                <div class="tabs__panel" id="skills" data-tab-type="primary">
+                  <div class="skills__panel">
+                    <div class="tabs">
+                      <div class="tabs__header">
+                        <button
+                          class="tabs__button active"
+                          data-tab="soft"
+                          data-tab-type="secondary"
+                        >
+                          Soft
+                        </button>
+                        <button
+                          class="tabs__button"
+                          data-tab="technical"
+                          data-tab-type="secondary"
+                        >
+                          Technical
+                        </button>
+                      </div>
+                      <div class="tabs__content">
+                        <div
+                          class="tabs__panel active"
+                          id="soft"
+                          data-tab-type="secondary"
+                        >
+                          <div class="skills__panel-soft"></div>
+                        </div>
+                        <div
+                          class="tabs__panel"
+                          id="technical"
+                          data-tab-type="secondary"
+                        >
+                          <div class="skills__panel-technical"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -133,6 +184,7 @@
         </div>
       </div>
     </main>
-    <script src="js/dataLoader.js"></script>
+    <script src="js/dataLoader.js" defer></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

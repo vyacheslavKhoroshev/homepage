@@ -11,109 +11,164 @@ const fetchData = async (url) => {
   }
 };
 
-const createExperiencesHTML = (experiences) => {
-  return experiences
-    .map(
-      (exp) =>
-        `<div class="experiences__company-header">
-          <span class="experiences__company-header-durability">${exp.period}</span>
-          <h3 class="experiences__company-header-company">${exp.company}</h3>
-          <h2 class="experiences__company-header-role">${exp.role}</h2>
-        </div>`
-    )
-    .join("");
+const createElement = ({ tagName, className, attributes = {} }) => {
+  const element = document.createElement(tagName);
+
+  if (className) {
+    const classNames = className.split(" ").filter(Boolean);
+    element.classList.add(...classNames);
+  }
+
+  Object.keys(attributes).forEach((key) =>
+    element.setAttribute(key, attributes[key])
+  );
+
+  return element;
 };
 
-const createEducationsHTML = (educations) => {
-  return educations
-    .map(
-      (edu) =>
-        `<div class="educations__company-header">
-          <span class="education-durability">${edu.period}</span>
-          <h3 class="education-name">${edu.university}</h3>
-          <h2 class="education-speciality">${edu.speciality}</h2>
-        </div>`
-    )
-    .join("");
+const createPanelHeader = ([title1, title2]) => {
+  const header = createElement({
+    tagName: "div",
+    className: "panel__header fh",
+  });
+  const title1Element = createElement({
+    tagName: "h4",
+    className: "panel__header-title",
+  });
+  const title2Element = createElement({
+    tagName: "h4",
+    className: "panel__header-title",
+  });
+
+  title1Element.textContent = title1;
+  title2Element.textContent = title2;
+
+  header.appendChild(title1Element);
+  header.appendChild(title2Element);
+
+  return header;
 };
 
-const createSkillsHTML = (skills) => {
-  return skills.soft
-    .map(
-      (skill) =>
-        `<div class="experiences__company-header">
-          <span class="skill-name">${skill.name}</span>
-          <h3 class="skill-level">${skill.level}</h3>
-        </div>`
-    )
-    .join("");
+const createPanelBody = ({
+  name,
+  period,
+  info,
+  nameTag = "h4",
+  descriptionTag = "h4",
+}) => {
+  const wrapper = createElement({
+    tagName: "div",
+    className: "panel__wrapper fh",
+  });
+  const nameElement = createElement({
+    tagName: nameTag,
+    className: "panel__name",
+  });
+  const descriptionElement = createElement({
+    tagName: descriptionTag,
+    className: "panel__description",
+  });
+
+  if (period) {
+    const periodSpan = createElement({
+      tagName: "span",
+      className: "panel__durability",
+    });
+    periodSpan.textContent = period;
+    nameElement.appendChild(periodSpan);
+  }
+
+  nameElement.textContent = name;
+  descriptionElement.textContent = info || "";
+
+  wrapper.appendChild(nameElement);
+  wrapper.appendChild(descriptionElement);
+
+  return wrapper;
 };
 
-/*const createContactHTML = (contact) => {
-  return `
-    <div class="contact-info__header">
-      <h1>${contact.name}</h1>
-    </div>
-    <div class="contact-info__sub-header">
-      <h2>${contact.position}</h2>
-    </div>
-    <div class="contact-info__block">
-      <div class="contact-info__item">
-        <span class="contact-info__item-icon-wrapper">
-          <svg class="contact-info__item-icon" viewBox="0 0 24 24">
-            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-        </span>
-        <span>${contact.email}</span>
-      </div>
-      <div class="contact-info__item">
-        <span class="contact-info__item-icon-wrapper">
-          <svg class="contact-info__item-icon" viewBox="0 0 24 24">
-            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-          </svg>
-        </span>
-        <span>${contact.phone}</span>
-      </div>
-      <div class="contact-info__item">
-        <span class="contact-info__item-icon-wrapper">
-          <svg class="contact-info__item-icon" viewBox="0 0 24 24">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-          </svg>
-        </span>
-        <span>${contact.location}</span>
-      </div>
-    </div>
-  `;
-};*/
+const createSkillBody = ({ name, info }) => {
+  const wrapper = createElement({
+    tagName: "div",
+    className: "panel__wrapper fh",
+  });
+  const nameElement = createElement({
+    tagName: "h3",
+    className: "panel__name",
+  });
+  const levelContainer = createElement({
+    tagName: "div",
+    className: "skill__level",
+  });
+  const levelBar = createElement({
+    tagName: "div",
+    className: "skill__level-bar",
+  });
+  const levelText = createElement({
+    tagName: "span",
+    className: "skill__level-text",
+  });
+
+  nameElement.textContent = name;
+  levelBar.style.width = `${info * 20}%`;
+  levelText.textContent = `${info}/5`;
+
+  levelContainer.appendChild(levelBar);
+  levelContainer.appendChild(levelText);
+  wrapper.appendChild(nameElement);
+  wrapper.appendChild(levelContainer);
+
+  return wrapper;
+};
+
+const createPanel = (data, titles, skill = false) => {
+  const container = createElement({ tagName: "div" });
+  const header = createPanelHeader(titles);
+  container.appendChild(header);
+
+  data.forEach((item) => {
+    const panelItem = skill ? createSkillBody(item) : createPanelBody(item);
+    container.appendChild(panelItem);
+  });
+
+  return container;
+};
 
 const loadData = async () => {
-  const experiencesData = await fetchData("assets/data/experiences.json");
-  const educationData = await fetchData("assets/data/educations.json");
-  const skillsData = await fetchData("assets/data/skills.json");
-  //const contactData = await fetchData("assets/data/contact.json");
+  const [experiencesData, educationData, skillsData] = await Promise.all([
+    fetchData("assets/data/experiences.json"),
+    fetchData("assets/data/educations.json"),
+    fetchData("assets/data/skills.json"),
+  ]);
 
   if (experiencesData) {
-    document.querySelector(".experiences__container").innerHTML =
-      createExperiencesHTML(experiencesData.experiences);
+    document
+      .querySelector(".experiences__panel")
+      .appendChild(
+        createPanel(experiencesData.experiences, ["Company", "Role"])
+      );
   }
 
   if (educationData) {
-    document.querySelector(".educations__container").innerHTML =
-      createEducationsHTML(educationData.educations);
+    document
+      .querySelector(".educations__panel")
+      .appendChild(
+        createPanel(educationData.educations, ["Place of study", "Speciality"])
+      );
   }
 
   if (skillsData) {
-    document.querySelector(".skills__container").innerHTML = createSkillsHTML(
-      skillsData.skills
-    );
+    document
+      .querySelector(".skills__panel-soft")
+      .appendChild(
+        createPanel(skillsData.skills.soft, ["Skill", "Level"], true)
+      );
+    document
+      .querySelector(".skills__panel-technical")
+      .appendChild(
+        createPanel(skillsData.skills.technical, ["Skill", "Level"], true)
+      );
   }
-  /*if (contactData) {
-    document.querySelector(".contact-info").innerHTML = createContactHTML(
-      contactData.contact
-    );
-  }
- */
 };
 
-// Load data when the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", loadData);
+loadData();

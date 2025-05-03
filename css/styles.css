@@ -1,8 +1,6 @@
 @import "contact.css";
 @import "intro.css";
-@import "skills.css";
-@import "experiences.css";
-@import "additional.css";
+@import "tabs.css";
 
 * {
   margin: 0;
@@ -13,19 +11,24 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
+  --main-color: #fdfdfd;
 
-  --primary-text-color: #181820;
-  --secondary-text-color: #5c5c62;
+  --primary-text-color: #2e2e2e;
+  --secondary-text-color: #777c85;
   --durability-text-color: #6a737d9c;
+
   --icon-color: #6a737d;
-  --border-color: #ff9a0045;
-  --text-decoration-color: #ff9a00;
+  --border-color: #375a7f;
+  --text-decoration-color: #ffa500;
+
+  background-color: var(--main-color);
 }
 
 .fh {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .fv {
@@ -72,16 +75,4 @@ body {
     margin-right: 0;
   }
 }
-.languages {
-  margin-bottom: 20px;
-}
 
-.languages-header {
-  color: var(--secondary-text-color);
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.languages-item {
-  color: var(--secondary-text-color);
-}
