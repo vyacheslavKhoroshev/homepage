@@ -30,5 +30,19 @@ const setupTabs = (buttons, panels) => {
     });
   });
 };
+
+const animateSections = () => {
+  const sections = document.querySelectorAll(".container");
+  let delay = 0;
+
+  sections.forEach(section => {
+    setTimeout(() => {
+      section.classList.add('visible');
+    }, delay);
+    delay += 200;
+  });
+};
+
+animateSections()
 setupTabs(mainTabButtons, mainTabPanels);
 setupTabs(skillsTabButtons, skillsTabPanels);
