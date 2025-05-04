@@ -1,0 +1,107 @@
+.slider {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: var(--transition);
+  border: 4px solid white;
+  margin: 0 auto;
+}
+
+.slider:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px var(--shadow-color);
+}
+
+.slider__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slider__slide.active {
+  opacity: 1;
+}
+
+.slider__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.slider__controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slider:hover .slider__controls {
+  opacity: 1;
+}
+
+.slider__button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider__button:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+.slider__button i {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}
+
+.slider__dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.slider__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider__dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}

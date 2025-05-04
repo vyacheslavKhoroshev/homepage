@@ -3,89 +3,89 @@
     "technical": [
       {
         "name": "English",
-        "level": 2.5
+        "info": 2.5
       },
       {
         "name": "Microsoft Office",
-        "level": 4.1
+        "info": 4.1
       },
       {
         "name": "Git",
-        "level": 2.2
+        "info": 2.2
       },
       {
         "name": "Mongo DB",
-        "level": 2.6
+        "info": 2.6
       },
       {
         "name": "Express",
-        "level": 1.5
+        "info": 1.5
       },
       {
         "name": "Node.js",
-        "level": 2.1
+        "info": 2.1
       },
       {
         "name": "Redux",
-        "level": 2.8
+        "info": 2.8
       },
       {
         "name": "React",
-        "level": 3.3
+        "info": 3.3
       },
       {
         "name": "Typescript",
-        "level": 3.9
+        "info": 3.9
       },
       {
         "name": "Javascript",
-        "level": 4.8
+        "info": 4.8
       },
       {
         "name": "HTML/CSS",
-        "level": 4.2
+        "info": 4.2
       }
     ],
     "soft": [
       {
         "name": "Dependability",
-        "level": 4.3
+        "info": 4.3
       },
       {
         "name": "Initiative",
-        "level": 4.8
+        "info": 4.8
       },
       {
         "name": "Attention to detail",
-        "level": 4.2
+        "info": 4.2
       },
       {
         "name": "Patience",
-        "level": 4.7
+        "info": 4.7
       },
       {
         "name": "Creativity",
-        "level": 3.2
+        "info": 3.2
       },
       {
         "name": "Adaptability-flexibility",
-        "level": 3.8
+        "info": 3.8
       },
       {
         "name": "Leadership",
-        "level": 3.5
+        "info": 3.5
       },
       {
         "name": "Time management",
-        "level": 2.7
+        "info": 2.7
       },
       {
         "name": "Teamwork",
-        "level": 3.9
+        "info": 3.9
       },
       {
         "name": "Communication",
-        "level": 2.7
+        "info": 2.7
       }
     ]
   }

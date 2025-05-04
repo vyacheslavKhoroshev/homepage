@@ -1,16 +1,64 @@
-.skills__header {
-  color: var(--secondary-text-color);
-  text-align: center;
-  margin-bottom: 15px;
+.skills__panel-soft .panel__name {
+  margin-top: 0;
 }
 
-.skill-name {
-  color: var(--secondary-text-color);
-  text-align: justify;
+.skill__level {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.skill-level {
+.skill__level-bar-container {
+  position: relative;
+  height: 0.8rem;
+  border-radius: 0.5rem;
+  transition: all 0.5s ease;
+  animation: fillBar 1s ease forwards;
+  overflow: hidden;
+  margin: 0 1.5rem;
+}
+
+.skill__level-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0.8rem;
+  width: 35vw;
+  background: linear-gradient(
+    90deg,
+    rgba(204, 98, 98, 1) 0%,
+    rgba(224, 191, 43, 1) 25%,
+    rgba(71, 204, 59, 1) 100%
+  );
+
+  z-index: 5;
+}
+
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100;
+  }
+}
+
+.skill__level-text {
   color: var(--secondary-text-color);
-  text-align: justify;
-  border: 1px solid #000;
+  font-size: 1rem;
+  min-width: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-0.8rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
