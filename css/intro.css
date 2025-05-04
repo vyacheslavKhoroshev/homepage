@@ -46,4 +46,5 @@
   color: var(--secondary-text-color);
   text-align: justify;
   font-size: 1.2rem;
+  padding: 1rem;
 }
