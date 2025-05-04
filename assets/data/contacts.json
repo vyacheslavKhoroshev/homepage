@@ -1,11 +1,11 @@
 {
   "contacts": [
     {
-      "icon": "fa-solid fa-phone",
+      "icon": "fa-solid fa-phone phone",
       "text": "+38(099)770-17-89"
     },
     {
-      "icon": "fa-regular fa-envelope",
+      "icon": "fa-regular fa-envelope email",
       "text": "khoroshevyacheslav@gmail.com"
     },
     {

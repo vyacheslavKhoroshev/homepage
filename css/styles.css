@@ -15,21 +15,17 @@
 :root {
   --primary-color: #2c3e50;
   --secondary-color: #3498db;
+  --background-color: #f5f6fa;
   --text-color: #2c3e50;
   --light-text: #7f8c8d;
   --opacity-text: #7f8c8dbb;
-  --background-color: #8ac5ff;
-  --border-color: #e0e0e0;
+  --border-color: #dcdde1;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
-
-  --level-bar-low-color: #f32f2fda;
-  --level-bar-medium-color: #f3a42f;
-  --level-bar-high-color: #0b810b;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Arial", sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
@@ -44,6 +40,26 @@ body {
   max-width: 1000px;
   overflow: hidden;
 }
+
+.resume__section {
+  padding: 0 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  border-bottom: 3px solid var(--border-color);
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.resume__section.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.resume__section:last-child {
+  border-bottom: none;
+}
+
 .fh {
   display: flex;
   flex-direction: row;
@@ -74,11 +90,12 @@ body {
   margin: 0 auto;
   padding: 0 2rem;
   max-width: 1000px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.resume__block {
-  padding: 0 2rem;
-  margin-top: 2rem;
-  width: 100%;
-  border-bottom: 3px solid var(--border-color);
+.container.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
