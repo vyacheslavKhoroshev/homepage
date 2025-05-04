@@ -53,8 +53,8 @@ const createPanelBody = ({
   name,
   period,
   info,
-  nameTag = "h4",
-  descriptionTag = "h4",
+  nameTag = "div",
+  descriptionTag = "div",
 }) => {
   const wrapper = createElement({
     tagName: "div",
@@ -69,17 +69,18 @@ const createPanelBody = ({
     className: "panel__description",
   });
 
+  nameElement.textContent = name;
+  descriptionElement.textContent = info || "";
+
   if (period) {
     const periodSpan = createElement({
       tagName: "span",
       className: "panel__durability",
     });
+    console.log(period);
     periodSpan.textContent = period;
     nameElement.appendChild(periodSpan);
   }
-
-  nameElement.textContent = name;
-  descriptionElement.textContent = info || "";
 
   wrapper.appendChild(nameElement);
   wrapper.appendChild(descriptionElement);
@@ -93,7 +94,7 @@ const createSkillBody = ({ name, info }) => {
     className: "panel__wrapper fh",
   });
   const nameElement = createElement({
-    tagName: "h3",
+    tagName: "div",
     className: "panel__name",
   });
   const levelContainer = createElement({
@@ -134,10 +135,10 @@ const createPanel = (data, titles, skill = false) => {
   return container;
 };
 
-const createLinkIcon = (contacts) => {
-  const container = createElement({ tagName: "div", className: "social-icons" });
+const createLinkIcon = (socials) => {
+  const container = createElement({ tagName: "div", className: "social-icons " });
 
-  contacts.forEach((contact) => {
+  socials.forEach((contact) => {
     const link = createElement({ tagName: "a" , className: 'contact-info__item'});
     link.href = contact.link;
     link.target = "_blank";
@@ -152,11 +153,11 @@ const createLinkIcon = (contacts) => {
 };
 
 const loadData = async () => {
-  const [experiencesData, educationData, skillsData, contactsData] = await Promise.all([
+  const [experiencesData, educationData, skillsData, socialsData] = await Promise.all([
     fetchData("assets/data/experiences.json"),
     fetchData("assets/data/educations.json"),
     fetchData("assets/data/skills.json"),
-    fetchData("assets/data/contacts.json"),
+    fetchData("assets/data/socials.json"),
   ]);
 
   if (experiencesData) {
@@ -188,10 +189,10 @@ const loadData = async () => {
       );
   }
 
-  if (contactsData) {
+  if (socialsData) {
     document
-      .querySelector(".contact_info_container")
-      .appendChild(createLinkIcon(contactsData.contacts));
+      .querySelector(".contact-info__block.socials")
+      .appendChild(createLinkIcon(socialsData.socials));
   }
 };
 

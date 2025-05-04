@@ -25,7 +25,7 @@ const createSlider = (images) => {
   
     const prevButton = createElement({
       tagName: "button",
-      className: "slider__button",
+      className: "slider__button fc",
     });
     prevButton.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -102,7 +102,7 @@ const createSlider = (images) => {
     ];
   
     const slider = createSlider(images);
-    const centerBlock = document.querySelector(".contact-info__block--center");
+    const centerBlock = document.querySelector(".contact-info__block.avatar");
   
     const existingImage = centerBlock.querySelector("img");
     if (existingImage) {
