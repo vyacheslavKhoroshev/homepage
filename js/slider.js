@@ -35,12 +35,12 @@ const createSlider = (images) => {
 
   const prevIcon = createElement({
     tagName: "i",
-    className: "fa-sharp fa-duotone fa-circle-chevron-left",
+    className: "fa-solid fa-arrow-left",
   });
 
   const nextIcon = createElement({
     tagName: "i",
-    className: "fa-sharp fa-duotone fa-circle-chevron-right",
+    className: "fa-solid fa-arrow-right",
   });
 
   prevButton.appendChild(prevIcon);

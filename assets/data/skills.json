@@ -2,36 +2,32 @@
   "skills": {
     "technical": [
       {
-        "name": "English",
-        "info": 2.5
-      },
-      {
-        "name": "Microsoft Office",
-        "info": 4.1
-      },
-      {
         "name": "Git",
         "info": 2.2
       },
       {
         "name": "Mongo DB",
-        "info": 2.6
+        "info": 3.2
       },
       {
         "name": "Express",
-        "info": 1.5
+        "info": 3.5
       },
       {
         "name": "Node.js",
-        "info": 2.1
+        "info": 4
       },
       {
         "name": "Redux",
-        "info": 2.8
+        "info": 3.9
       },
       {
         "name": "React",
-        "info": 3.3
+        "info": 4
+      },
+      {
+        "name": "React Native",
+        "info": 2.9
       },
       {
         "name": "Typescript",
@@ -44,6 +40,14 @@
       {
         "name": "HTML/CSS",
         "info": 4.2
+      },
+      {
+        "name": "SQL",
+        "info": 3.5
+      },
+      {
+        "name": "Docker",
+        "info": 2
       }
     ],
     "soft": [

@@ -1,7 +1,7 @@
 .slider {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 8px 24px var(--shadow-color);
@@ -89,7 +89,12 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  opacity: 0;
   gap: 8px;
+}
+
+.slider:hover .slider__dots {
+  opacity: 1;
 }
 
 .slider__dot {
