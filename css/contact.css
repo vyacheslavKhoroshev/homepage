@@ -1,12 +1,14 @@
-.contact-info__item {
-  color: var(--secondary-text-color);
-  text-decoration: none;
-  display: flex;
-  justify-content: start;
-  transition: transform 0.3s, color 0.3s;
+.contact-info__header {
+  color: var(--primary-text-color);
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
 }
-.contact-info__item:hover {
-  transform: scale(1.5);
+
+.contact-info__sub-header {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .contact-info__header,
@@ -14,54 +16,26 @@
   text-align: center;
 }
 
-.contact-info__header {
-  color: var(--primary-text-color);
-  margin-bottom: 15px;
-  text-decoration-color: var(--text-decoration-color);
-  text-decoration-line: underline;
+.contact-info__container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem 0;
+  border-top: 3px solid var(--border-color);
 }
 
-.contact-info__sub-header {
-  color: var(--secondary-text-color);
-  margin-bottom: 30px;
-}
-
-.contact-info__block {
+.contact-infomations {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
-.contact-info__block--center {
-  justify-content: center;
+.contact-info__item {
+  color: var(--secondary-color);
+  transition: var(--transition);
+  text-decoration: none;
+  font-size: 1.8rem;
 }
 
-
-.contact-info__item:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.contact-info__item-icon-wrapper {
-  margin-right: 10px;
-  width: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.contact-info__item-icon path {
-  fill: var(--icon-color);
-}
-
-.contact-info__item-icon {
-  height: 1.1428rem;
-  vertical-align: text-bottom;
-}
-
-.contact-info__avatar {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border: 3px solid;
-  border-color: var(--text-decoration-color);
+.contact-info__item span {
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
 }
