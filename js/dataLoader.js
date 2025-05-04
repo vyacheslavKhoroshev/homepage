@@ -53,8 +53,8 @@ const createPanelBody = ({
   name,
   period,
   info,
-  nameTag = "h4",
-  descriptionTag = "h4",
+  nameTag = "div",
+  descriptionTag = "div",
 }) => {
   const wrapper = createElement({
     tagName: "div",
@@ -69,17 +69,18 @@ const createPanelBody = ({
     className: "panel__description",
   });
 
+  nameElement.textContent = name;
+  descriptionElement.textContent = info || "";
+
   if (period) {
     const periodSpan = createElement({
       tagName: "span",
       className: "panel__durability",
     });
+    console.log(period);
     periodSpan.textContent = period;
     nameElement.appendChild(periodSpan);
   }
-
-  nameElement.textContent = name;
-  descriptionElement.textContent = info || "";
 
   wrapper.appendChild(nameElement);
   wrapper.appendChild(descriptionElement);
@@ -93,13 +94,19 @@ const createSkillBody = ({ name, info }) => {
     className: "panel__wrapper fh",
   });
   const nameElement = createElement({
-    tagName: "h3",
+    tagName: "div",
     className: "panel__name",
   });
   const levelContainer = createElement({
     tagName: "div",
     className: "skill__level",
   });
+
+  const levelBarContainer = createElement({
+    tagName: "div",
+    className: "skill__level-bar-container",
+  });
+
   const levelBar = createElement({
     tagName: "div",
     className: "skill__level-bar",
@@ -110,10 +117,11 @@ const createSkillBody = ({ name, info }) => {
   });
 
   nameElement.textContent = name;
-  levelBar.style.width = `${info * 20}%`;
-  levelText.textContent = `${info}/5`;
+  levelBarContainer.style.width = `${info * 20}%`;
+  levelText.textContent = `${info}`;
 
-  levelContainer.appendChild(levelBar);
+  levelBarContainer.appendChild(levelBar);
+  levelContainer.appendChild(levelBarContainer);
   levelContainer.appendChild(levelText);
   wrapper.appendChild(nameElement);
   wrapper.appendChild(levelContainer);
@@ -134,11 +142,17 @@ const createPanel = (data, titles, skill = false) => {
   return container;
 };
 
-const createLinkIcon = (contacts) => {
-  const container = createElement({ tagName: "div", className: "social-icons" });
+const createSocialsLinkIcon = (socials) => {
+  const container = createElement({
+    tagName: "div",
+    className: "social-icons ",
+  });
 
-  contacts.forEach((contact) => {
-    const link = createElement({ tagName: "a" , className: 'contact-info__item'});
+  socials.forEach((contact) => {
+    const link = createElement({
+      tagName: "a",
+      className: "contact-info__item",
+    });
     link.href = contact.link;
     link.target = "_blank";
 
@@ -151,11 +165,51 @@ const createLinkIcon = (contacts) => {
   return container;
 };
 
+const createContactInfo = (contacts) => {
+  const container = createElement({
+    tagName: "div",
+    className: "contact-infomations",
+  });
+
+  contacts.forEach((contact) => {
+    const item = createElement({
+      tagName: "a",
+      className: "contact-info__item",
+    });
+
+    const icon = createElement({ tagName: "i", className: contact.icon });
+    const text = createElement({
+      tagName: "span",
+      className: "contact-info__text",
+    });
+
+    if (contact.link) {
+      item.href = contact.link;
+      item.target = "_blank";
+    }
+
+    text.textContent = contact.text;
+    item.appendChild(icon);
+    item.appendChild(text);
+
+    container.appendChild(item);
+  });
+
+  return container;
+};
+
 const loadData = async () => {
-  const [experiencesData, educationData, skillsData, contactsData] = await Promise.all([
+  const [
+    experiencesData,
+    educationData,
+    skillsData,
+    socialsData,
+    contactsData,
+  ] = await Promise.all([
     fetchData("assets/data/experiences.json"),
     fetchData("assets/data/educations.json"),
     fetchData("assets/data/skills.json"),
+    fetchData("assets/data/socials.json"),
     fetchData("assets/data/contacts.json"),
   ]);
 
@@ -188,10 +242,16 @@ const loadData = async () => {
       );
   }
 
+  if (socialsData) {
+    document
+      .querySelector(".contact-info__block.socials")
+      .appendChild(createSocialsLinkIcon(socialsData.socials));
+  }
+
   if (contactsData) {
     document
-      .querySelector(".contact_info_container")
-      .appendChild(createLinkIcon(contactsData.contacts));
+      .querySelector(".contact-info__block.main")
+      .appendChild(createContactInfo(contactsData.contacts));
   }
 };
 
