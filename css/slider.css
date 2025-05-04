@@ -90,7 +90,6 @@
   transform: translateX(-50%);
   display: flex;
   opacity: 0;
-  gap: 8px;
 }
 
 .slider:hover .slider__dots {
@@ -104,6 +103,7 @@
   background-color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: var(--transition);
+margin: 2px;
 }
 
 .slider__dot.active {
