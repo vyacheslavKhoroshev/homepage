@@ -101,6 +101,12 @@ const createSkillBody = ({ name, info }) => {
     tagName: "div",
     className: "skill__level",
   });
+
+  const levelBarContainer = createElement({
+    tagName: "div",
+    className: "skill__level-bar-container",
+  });
+
   const levelBar = createElement({
     tagName: "div",
     className: "skill__level-bar",
@@ -111,10 +117,11 @@ const createSkillBody = ({ name, info }) => {
   });
 
   nameElement.textContent = name;
-  levelBar.style.width = `${info * 20}%`;
-  levelText.textContent = `${info}/5`;
+  levelBarContainer.style.width = `${info * 20}%`;
+  levelText.textContent = `${info}`;
 
-  levelContainer.appendChild(levelBar);
+  levelBarContainer.appendChild(levelBar);
+  levelContainer.appendChild(levelBarContainer);
   levelContainer.appendChild(levelText);
   wrapper.appendChild(nameElement);
   wrapper.appendChild(levelContainer);
@@ -136,10 +143,16 @@ const createPanel = (data, titles, skill = false) => {
 };
 
 const createLinkIcon = (socials) => {
-  const container = createElement({ tagName: "div", className: "social-icons " });
+  const container = createElement({
+    tagName: "div",
+    className: "social-icons ",
+  });
 
   socials.forEach((contact) => {
-    const link = createElement({ tagName: "a" , className: 'contact-info__item'});
+    const link = createElement({
+      tagName: "a",
+      className: "contact-info__item",
+    });
     link.href = contact.link;
     link.target = "_blank";
 
@@ -153,12 +166,13 @@ const createLinkIcon = (socials) => {
 };
 
 const loadData = async () => {
-  const [experiencesData, educationData, skillsData, socialsData] = await Promise.all([
-    fetchData("assets/data/experiences.json"),
-    fetchData("assets/data/educations.json"),
-    fetchData("assets/data/skills.json"),
-    fetchData("assets/data/socials.json"),
-  ]);
+  const [experiencesData, educationData, skillsData, socialsData] =
+    await Promise.all([
+      fetchData("assets/data/experiences.json"),
+      fetchData("assets/data/educations.json"),
+      fetchData("assets/data/skills.json"),
+      fetchData("assets/data/socials.json"),
+    ]);
 
   if (experiencesData) {
     document

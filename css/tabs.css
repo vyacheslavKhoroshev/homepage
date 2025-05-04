@@ -102,15 +102,16 @@
 .panel__wrapper {
   padding: 1.2rem;
   border-bottom: 1px solid var(--border-color);
+  display: flex;
 }
 
 .panel__wrapper:hover {
   background: rgba(52, 152, 219, 0.267);
 }
 
-
 .panel__name {
   position: relative;
+  flex: 0  0  1rem;
   margin-top: -1rem;
   color: var(--primary-text-color);
   text-align: left;
@@ -134,26 +135,3 @@
   font-weight: 500;
 }
 
-.skills__panel-soft .panel__name {
-  margin-top: 0;
-}
-
-.skill__level {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.skill__level-bar {
-  height: 8px;
-  background-color: var(--text-decoration-color);
-  border-radius: 4px;
-  transition: width 0.3s ease;
-}
-
-.skill__level-text {
-  color: var(--secondary-text-color);
-  font-size: 0.9rem;
-  min-width: 40px;
-}

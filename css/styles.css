@@ -4,6 +4,7 @@
 @import "slider.css";
 @import "intro.css";
 @import "tabs.css";
+@import "skills.css";
 
 * {
   margin: 0;
@@ -14,7 +15,6 @@
 :root {
   --primary-color: #2c3e50;
   --secondary-color: #3498db;
-  --accent-color: #e74c3c;
   --text-color: #2c3e50;
   --light-text: #7f8c8d;
   --opacity-text: #7f8c8dbb;
@@ -22,6 +22,10 @@
   --border-color: #e0e0e0;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
+
+  --level-bar-low-color: #f32f2fda;
+  --level-bar-medium-color: #f3a42f;
+  --level-bar-high-color: #0b810b;
 }
 
 body {
@@ -113,3 +117,5 @@ body {
     margin-bottom: 20px;
   }
 }
+
+
