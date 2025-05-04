@@ -1,0 +1,17 @@
+{
+  "contacts": [
+    {
+      "icon": "fa-solid fa-phone",
+      "text": "+38(099)770-17-89"
+    },
+    {
+      "icon": "fa-regular fa-envelope",
+      "text": "khoroshevyacheslav@gmail.com"
+    },
+    {
+      "link": "https://www.google.com/maps/place/46%C2%B057'05.6%22N+31%C2%B056'18.5%22",
+      "icon": "fa-solid fa-location-dot location",
+      "text": "Mykolaiv, Ukraine"
+    }
+  ]
+}

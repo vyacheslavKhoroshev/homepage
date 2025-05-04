@@ -77,17 +77,6 @@
   height: 2px;
 }
 
-@media screen and (max-width: 768px) {
-  .tabs__header {
-    flex-wrap: wrap;
-  }
-
-  .tabs__button {
-    padding: 10px 20px;
-    font-size: 1rem;
-  }
-}
-
 .panel__header {
   padding: 0rem;
 }
@@ -111,7 +100,7 @@
 
 .panel__name {
   position: relative;
-  flex: 0  0  1rem;
+
   margin-top: -1rem;
   color: var(--primary-text-color);
   text-align: left;
@@ -134,4 +123,3 @@
   font-size: 1.2rem;
   font-weight: 500;
 }
-

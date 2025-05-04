@@ -23,10 +23,6 @@
     {
       "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "icon": "fa-brands fa-youtube youtube"
-    },
-    {
-      "link": "https://www.google.com/maps/place/46.951545,%2031.938479",
-      "icon": "fa-solid fa-location-dot location"
     }
   ]
 }

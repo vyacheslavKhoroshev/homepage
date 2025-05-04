@@ -32,4 +32,3 @@ const setupTabs = (buttons, panels) => {
 };
 setupTabs(mainTabButtons, mainTabPanels);
 setupTabs(skillsTabButtons, skillsTabPanels);
-

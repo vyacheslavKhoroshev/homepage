@@ -142,7 +142,7 @@ const createPanel = (data, titles, skill = false) => {
   return container;
 };
 
-const createLinkIcon = (socials) => {
+const createSocialsLinkIcon = (socials) => {
   const container = createElement({
     tagName: "div",
     className: "social-icons ",
@@ -165,14 +165,53 @@ const createLinkIcon = (socials) => {
   return container;
 };
 
+const createContactInfo = (contacts) => {
+  const container = createElement({
+    tagName: "div",
+    className: "contact-infomations",
+  });
+
+  contacts.forEach((contact) => {
+    const item = createElement({
+      tagName: "a",
+      className: "contact-info__item",
+    });
+
+    const icon = createElement({ tagName: "i", className: contact.icon });
+    const text = createElement({
+      tagName: "span",
+      className: "contact-info__text",
+    });
+
+    if (contact.link) {
+      item.href = contact.link;
+      item.target = "_blank";
+    }
+
+    text.textContent = contact.text;
+    item.appendChild(icon);
+    item.appendChild(text);
+
+    container.appendChild(item);
+  });
+
+  return container;
+};
+
 const loadData = async () => {
-  const [experiencesData, educationData, skillsData, socialsData] =
-    await Promise.all([
-      fetchData("assets/data/experiences.json"),
-      fetchData("assets/data/educations.json"),
-      fetchData("assets/data/skills.json"),
-      fetchData("assets/data/socials.json"),
-    ]);
+  const [
+    experiencesData,
+    educationData,
+    skillsData,
+    socialsData,
+    contactsData,
+  ] = await Promise.all([
+    fetchData("assets/data/experiences.json"),
+    fetchData("assets/data/educations.json"),
+    fetchData("assets/data/skills.json"),
+    fetchData("assets/data/socials.json"),
+    fetchData("assets/data/contacts.json"),
+  ]);
 
   if (experiencesData) {
     document
@@ -206,7 +245,13 @@ const loadData = async () => {
   if (socialsData) {
     document
       .querySelector(".contact-info__block.socials")
-      .appendChild(createLinkIcon(socialsData.socials));
+      .appendChild(createSocialsLinkIcon(socialsData.socials));
+  }
+
+  if (contactsData) {
+    document
+      .querySelector(".contact-info__block.main")
+      .appendChild(createContactInfo(contactsData.contacts));
   }
 };
 

@@ -23,6 +23,19 @@
   border-top: 3px solid var(--border-color);
 }
 
-.contact-info__block {
+.contact-infomations {
+  display: flex;
+  flex-direction: column;
 }
 
+.contact-info__item {
+  color: var(--secondary-color);
+  transition: var(--transition);
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+.contact-info__item span {
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+}

@@ -74,7 +74,6 @@ body {
   margin: 0 auto;
   padding: 0 2rem;
   max-width: 1000px;
-  
 }
 
 .resume__block {
@@ -83,39 +82,3 @@ body {
   width: 100%;
   border-bottom: 3px solid var(--border-color);
 }
-
-@media screen and (max-width: 768px) {
-  .resume {
-    margin: 20px;
-    padding: 20px 0;
-  }
-
-  .resume__block {
-    margin: 0 20px;
-    padding: 20px 0;
-  }
-
-  .container {
-    padding: 0 20px;
-  }
-
-  .contact-info__header {
-    font-size: 2rem;
-  }
-
-  .contact-info__sub-header {
-    font-size: 1.2rem;
-  }
-
-  .contact_info_container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .contact-info__block--center {
-    order: -1;
-    margin-bottom: 20px;
-  }
-}
-
-
